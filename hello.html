@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-eqiv="X-UA-Compatible" content="edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Task</title>
+    <script src="js/react.js"></script>
+    <script src="js/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var Task = React.createClass({
+        edit: function(){
+          alert("button 'Edit' is pressed");
+        },
+        remove: function(){
+          alert("button 'Remove' is pressed");
+        },
+
+        render: function(){
+          return(
+            <div className="box">
+              <div className="text">{this.props.children}</div>
+              <button onClick={this.edit} className="btn light">Edit</button>
+              <button onClick={this.remove} className="btn red">Remove</button>
+            </div>
+          );
+        }
+      });
+      
+
+
+      const app = document.getElementById("root");
+      ReactDOM.render(
+      <div className="field">
+        <Task>Hi Andrew!</Task>
+        <Task>Task number 2</Task>
+        <Task>Hello world!</Task>
+      </div>,
+       app
+      );
+    </script>
+  </body>
+</html>
