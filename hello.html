@@ -24,6 +24,8 @@
           alert("button 'Remove' is pressed");
         },
         save: function(){
+          var value = this.refs.newTxt.value;
+          alert(value);
           this.setState({edit: false})
         },
         rendNorm: function(){
@@ -38,7 +40,7 @@
         rendEdit: function(){
           return(
             <div className="box">
-              <textarea defaultValue={this.props.children} rows="2"></textarea>
+              <textarea  ref="newTxt" defaultValue={this.props.children} rows="2"></textarea>
               <button onClick={this.save} className="btn success">Save</button>
             </div>
           );
@@ -52,17 +54,34 @@
         }
       });
       
+      var Field = React.createClass({
+        getInitialState: function(){
+          return{
+            tasks: [
+              "need to buy the milk",
+              "need to brush teeth",
+              "just relax"
+
+            ]
+          }
+        },
+        render: function(){
+          return(
+            <div className="field">
+             {
+              this.state.tasks.map(function(item, i){
+                return(<Task key={i}>{item}</Task>);
+              })
+            }             
+            </div>
+          );
+        }
+     
+      });
 
 
       const app = document.getElementById("root");
-      ReactDOM.render(
-      <div className="field">
-        <Task>Hi Andrew!</Task>
-        <Task>Task number 2</Task>
-        <Task>Hello world!</Task>
-      </div>,
-       app
-      );
+      ReactDOM.render(<Field/>, app);
     </script>
   </body>
 </html>
