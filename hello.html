@@ -14,14 +14,19 @@
     <div id="root"></div>
     <script type="text/babel">
       var Task = React.createClass({
+        getInitialState: function(){
+          return {edit: false}
+        },
         edit: function(){
-          alert("button 'Edit' is pressed");
+          this.setState({edit: true})
         },
         remove: function(){
           alert("button 'Remove' is pressed");
         },
-
-        render: function(){
+        save: function(){
+          this.setState({edit: false})
+        },
+        rendNorm: function(){
           return(
             <div className="box">
               <div className="text">{this.props.children}</div>
@@ -29,6 +34,21 @@
               <button onClick={this.remove} className="btn red">Remove</button>
             </div>
           );
+        },
+        rendEdit: function(){
+          return(
+            <div className="box">
+              <textarea defaultValue={this.props.children} rows="2"></textarea>
+              <button onClick={this.save} className="btn success">Save</button>
+            </div>
+          );
+        },
+        render: function(){
+          if(this.state.edit){
+            return this.rendEdit();
+          }else{
+            return this.rendNorm();
+          }
         }
       });
       

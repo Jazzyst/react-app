@@ -19,6 +19,7 @@ body {
   margin-bottom: 20px;
   padding: 10px;
   width: 80%;
+  text-align: center;
 }
 
 .box:last-child {
@@ -44,6 +45,10 @@ button.btn {
   background-color: #dda66d;
   border: 2px solid #b6821a;
 }
+.btn.success {
+  background-color: #4fc966;
+  border: 2px solid #2aa24f;
+}
 
 .btn.light:hover {
   background-color: #2a89a2;
@@ -53,4 +58,22 @@ button.btn {
 .btn.red:hover {
   background-color: #b6821a;
   border-color: #946912;
+}
+.btn.success:hover{
+  background-color: #2aa24f;
+  border: 2px solid #4fc966;
+}
+textarea{
+  width: 90%;
+  border-radius: 5px;
+  border: 1.5px solid silver;
+  padding: 10px;
+  display: block;
+  font-size: 0.7em;
+  outline: none;
+  resize: none;
+
+}
+textarea:focus{
+  border: 1.5px solid #6d79cd;
 }
