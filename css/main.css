@@ -49,7 +49,16 @@ button.btn {
   background-color: #4fc966;
   border: 2px solid #2aa24f;
 }
+.btn.new{
+  background-color: #dd567e;
+  border: 2px solid #c93964;
+  margin-bottom: 10px;
+}
+.btn.new:hover{
+  background-color: #c93964;
+  border: 2px solid #ac254d;
 
+}
 .btn.light:hover {
   background-color: #2a89a2;
   border-color: #1d6f85;

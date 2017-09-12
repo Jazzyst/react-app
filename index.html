@@ -56,13 +56,13 @@
       var Field = React.createClass({
         getInitialState: function(){
           return{
-            tasks: [
-              "need to buy the milk",
-              "need to brush teeth",
-              "just relax"
-
-            ]
+            tasks: []
           }
+        },
+        add: function(text){
+          var arr = this.state.tasks;
+          arr.push(text);
+          this.setState({tasks: arr});
         },
         deleteBlock: function(i){
           var arr = this.state.tasks;
@@ -84,6 +84,7 @@
         render: function(){
           return(
             <div className="field">
+            <button onClick={this.add.bind(null, 'Simple task')} className="btn new">New task</button>
              {this.state.tasks.map (this.eachTask)}             
             </div>
           );
